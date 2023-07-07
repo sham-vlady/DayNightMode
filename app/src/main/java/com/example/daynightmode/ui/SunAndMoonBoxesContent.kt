@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -18,7 +19,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.example.daynightmode.backgroundColor
 
 @Composable
 fun SunAndMoonBoxesContent(
@@ -78,7 +78,7 @@ private fun SecondCircle(
         modifier = modifier
             .absoluteOffset(x = 10.dp)
             .background(
-                color = backgroundColor,
+                color = MaterialTheme.colors.background,
                 shape = CircleShape
             )
             .size(circleSize)

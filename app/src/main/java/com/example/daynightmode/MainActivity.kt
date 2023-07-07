@@ -22,7 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.example.daynightmode.ui.AppSwitch
-import com.example.daynightmode.ui.SunAndMoonBoxesContent
+import com.example.daynightmode.ui.SunAndMoonCanvasContent
 import com.example.daynightmode.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,22 +36,14 @@ class MainActivity : ComponentActivity() {
             ) {
                 var isDayMode by remember { mutableStateOf(true) }
                 AppTheme {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(color = MaterialTheme.colors.background)
-                    ) {
-                        DayNightScreen(isDayMode = isDayMode) {
-                            isDayMode = it
-                        }
+                    DayNightScreen(isDayMode = isDayMode) {
+                        isDayMode = it
                     }
                 }
             }
         }
     }
 }
-
-val backgroundColor @Composable get() = MaterialTheme.colors.background
 
 @Composable
 fun DayNightScreen(
@@ -60,13 +52,15 @@ fun DayNightScreen(
 ) {
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = MaterialTheme.colors.background),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
 
-        //SunAndMoonCanvasContent(isDayMode = isDayMode)
-        SunAndMoonBoxesContent(isDayMode = isDayMode)
+        SunAndMoonCanvasContent(isDayMode = isDayMode)
+        //SunAndMoonBoxesContent(isDayMode = isDayMode)
 
         Text(
             modifier = Modifier.padding(top = 32.dp, bottom = 16.dp),
